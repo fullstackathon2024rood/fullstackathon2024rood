@@ -50,16 +50,19 @@ return the obfuscated image in its response. It should not store either the orig
 
 #### API
 The application can receive a multipart POST request that contains 2 fields:
-- file
-- message-text
+- file. This must be a JPEG file (extension .jpg or .jpeg)
+- message-text. This is a String that is entirely ignored.
 
 #### Run and use
 
 Build using `./gradlew build`
+
 Run using `./gradlew run`
 
+The application will run at port 8080, will only accept a PUT request.
+
 Example call using cURL:
-`curl -v -F message-text=testmessage -F file=@src/main/resources/plain_black.jpeg localhost:8080/obfuscate`
+`curl -X PUT -v -F message-text=testmessage -F file=@src/main/resources/plain_black.jpeg localhost:8080/obfuscate`
 
 ### Frontend
 

@@ -1,48 +1,42 @@
 package com.jdriven.obfuscator
 
+import com.jdriven.obfuscator.services.exif.ExifRemover
+import com.jdriven.obfuscator.services.file.FileExtractor
+import com.jdriven.obfuscator.services.obfuscate.Obfuscator
 import io.javalin.Javalin
-import io.javalin.http.UploadedFile
-import org.slf4j.LoggerFactory
+import io.javalin.http.ContentType
 import java.io.InputStream
 
 fun main() {
     // Add pages & actions to Javalin
     val app =
-        Javalin.create {
-                config ->
+        Javalin.create { config ->
             config.useVirtualThreads // Use virtual threads (based on Java Project Loom)
-        }
+        }.start(8080)
 
     val obfuscator = Obfuscator()
+    val fileExtractor = FileExtractor()
+    val exifRemover = ExifRemover()
 
-    app.post("/obfuscate") { ctx ->
+    app.put("/obfuscate") { ctx ->
         val messageText = ctx.formParam("message-text") // ignore for now
-        val fileContent = ctx.uploadedFile("file")?.let { obfuscator.extractOriginalFile(it) }
+        val uploadedFile = ctx.uploadedFile("file")
+        var imageFileContent: InputStream? = null
+        var imageFileType = ""
 
-        fileContent?.let {
-            obfuscator.obfuscate(fileContent)?.let { obfuscatedFile -> ctx.result(obfuscatedFile) }
+        uploadedFile?.let {
+            imageFileContent = fileExtractor.extractOriginalFile(it)
+            imageFileType = it.extension()
+        }
+
+        imageFileContent?.let {
+            obfuscator.obfuscate(exifRemover.removeExif(it, imageFileType).toByteArray().inputStream())
+                ?.let { obfuscatedFile ->
+                    ctx.contentType(ContentType.IMAGE_JPEG)
+                    ctx.result(obfuscatedFile)
+                }
         } ?: {
             ctx.status(500)
         }
-    }
-
-    app.start(8080)
-}
-
-class Obfuscator {
-    fun extractOriginalFile(uploadedFile: UploadedFile): InputStream {
-        logger.info("Found uploaded file ${uploadedFile.filename()}")
-        return uploadedFile.content()
-    }
-
-    fun obfuscate(file: InputStream): InputStream? {
-        // TODO call an external tool to obfuscate the provided file
-        val obfuscatedFile = "/resources/plain_black.jpeg"
-        logger.info("Generating obfuscated file $obfuscatedFile")
-        return ClassLoader.getSystemResourceAsStream(obfuscatedFile)
-    }
-
-    companion object {
-        private val logger = LoggerFactory.getLogger(this::class.java)
     }
 }
