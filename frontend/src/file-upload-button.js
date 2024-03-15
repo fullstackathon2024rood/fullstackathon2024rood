@@ -41,19 +41,19 @@ export class FileUploadButton extends LitElement {
             var submitContainer = document.getElementById('submit');
             submitContainer.classList.add('disabled');
 
-            setTimeout(() => {
-              cocoSsd.load().then(model => {
-                model.detect(img).then(predictions => {
-                  console.log('Predictions: ', predictions);
-                  this.predictions = predictions[0].class
-                  this.requestUpdate();
-                  loading = false;
-                  spinnerContainer.classList.remove('show-spinner');
-                  fileUploadButton.classList.remove('disabled');
-                  submitContainer.classList.remove('disabled');
-                });
-              });
-            }, 500);
+            setTimeout((
+                cocoSsd.load().then(model => {
+                  model.detect(img).then(predictions => {
+                    console.log('Predictions: ', predictions);
+                    this.predictions = predictions[0].class
+                    this.requestUpdate();
+                    loading = false;
+                    spinnerContainer.classList.remove('show-spinner');
+                    fileUploadButton.classList.remove('disabled');
+                    submitContainer.classList.remove('disabled');
+                  });
+                })
+            ), 500);
 
           }
           reader.readAsDataURL(event.target.files[0]);
