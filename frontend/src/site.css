@@ -77,7 +77,7 @@ main {
     margin-right: auto;
 }
 
-h1, h2 {
+h1, h2, h3 {
     color: #02b4e0;
     margin: 0;
     padding: 0;
@@ -129,7 +129,7 @@ form {
     justify-content: center;
 }
 
-#submit:disabled {
+#submit:disabled, input[type="button"]:disabled {
     background-color: #efeff4; /* Divotion Green */
     color: #000;
     cursor: default;
@@ -161,6 +161,38 @@ textarea {
     width: 35rem;
     max-width: 100%;
 }
+
+.file-upload__image-to-upload {
+    max-width: var(--max-width-main);
+    margin-top: 1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+.file-upload__image-to-upload .spinner {
+    display: none;
+}
+
+.file-upload__image-to-upload .spinner.show-spinner {
+    display: inline-block;
+    max-width: 50%;
+    position: absolute;
+}
+
+.file-upload__image-to-upload img {
+    width: 100%;
+}
+
+.file-upload__prediction {
+    display: flex;
+    justify-content: center;
+}
+
+
 
 @media (prefers-color-scheme: dark) {
     :root {

@@ -1,5 +1,6 @@
-import { LitElement, css, html } from 'lit';
+import { LitElement, css, html, nothing } from 'lit';
 import './file-upload-button.js';
+import {loading} from "./file-upload-button";
 import './timeline-message.js';
 import {toggleNightmare} from './jakob-nielsen-nightmare.js';
 
@@ -63,7 +64,7 @@ export class App extends LitElement {
                 <ui-file-upload-button name="file" text="Upload"></ui-file-upload-button>
               </div>
               <div class="formField submit">
-                <button type="submit" id="submit">submit</button>
+                <button type="submit" id="submit" .disabled="${loading}">submit</button>
               </div>
 
             </form>
