@@ -24,10 +24,11 @@ jobs:
     - name: Install npm packages
       run: npm --prefix frontend install
     - name: Restart node app
+      id: restart-node
       run: pm2 restart node-app
       continue-on-error: true
     - name: Start node app
-      if: failure()
+      if: steps.restart-node.outcome != 'success'
       run: pm2 start 'npm run --prefix frontend serve' --name node-app
   kotlin-job:
     runs-on: self-hosted
@@ -46,8 +47,9 @@ jobs:
     - name: Build with Gradle
       run: gradle build -p backend/
     - name: Restart kotlin application
+      id: restart-kt
       run: pm2 restart kotlin-app
       continue-on-error: true
     - name: Start kotlin app
-      if: failure()
+      if: steps.restart-kt.outcome != 'success'
       run: pm2 start 'gradle run -p backend/' --name kotlin-app
