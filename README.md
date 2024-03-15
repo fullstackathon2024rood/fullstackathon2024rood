@@ -62,7 +62,7 @@ Run using `./gradlew run`
 The application will run at port 8080, will only accept a PUT request.
 
 Example call using cURL:
-`curl -X PUT -v -F message-text=testmessage -F file=@src/main/resources/plain_black.jpeg localhost:8080/obfuscate`
+`curl -X PUT -v -F message-text=testmessage -F file=@backend/src/main/resources/plain_black.jpeg localhost:8080/obfuscate`
 
 ### Frontend
 

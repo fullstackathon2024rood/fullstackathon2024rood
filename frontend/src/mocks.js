@@ -18,7 +18,7 @@ export const worker = setupWorker(
 
     const file = formData.get('file');
     uploadedFiles[file.name] = file;
-    
+
     messages.push({ messageText: formData.get('message-text'), imageUrl: `http://206.189.3.8:8080/obfuscate` });
 
     worker.use(http.get('/messages', () => HttpResponse.json(messages)));
