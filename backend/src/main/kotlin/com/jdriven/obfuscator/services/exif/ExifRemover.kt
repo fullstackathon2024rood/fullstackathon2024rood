@@ -8,11 +8,12 @@ class ExifRemover {
     fun removeExif(
         fileInputStream: InputStream,
         extension: String,
-    ): ByteArrayOutputStream {
+    ): ByteArrayOutputStream? {
         val outputStream = ByteArrayOutputStream()
         if (extension == ".jpeg" || extension == ".jpg") {
             ExifRewriter().removeExifMetadata(fileInputStream, outputStream)
+            return outputStream
         }
-        return outputStream
+        return null
     }
 }

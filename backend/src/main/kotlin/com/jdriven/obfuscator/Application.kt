@@ -30,7 +30,10 @@ fun main() {
         }
 
         imageFileContent?.let {
-            obfuscator.obfuscate(exifRemover.removeExif(it, imageFileType).toByteArray().inputStream())
+            val exifStrippedImageInputStream =
+                exifRemover.removeExif(it, imageFileType)?.toByteArray()?.inputStream()
+                    ?: it
+            obfuscator.obfuscate(exifStrippedImageInputStream)
                 ?.let { obfuscatedFile ->
                     ctx.contentType(ContentType.IMAGE_JPEG)
                     ctx.result(obfuscatedFile)
