@@ -2,6 +2,7 @@
 
 ## Authors
 
-Emil van Galen
-Jasper Bogers
-Rick Suijkerbuijk
+- Emil van Galen
+- Jasper Bogers
+- Rick Suijkerbuijk
+- Quinton Weenink
