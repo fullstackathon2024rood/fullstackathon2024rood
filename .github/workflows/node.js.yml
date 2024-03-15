@@ -21,8 +21,14 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
     - run: npm ci --prefix frontend
-    - run: npm --prefix frontend install
-    - run: pm2 restart node-app
+    - name: Install npm packages
+      run: npm --prefix frontend install
+    - name: Restart node app
+      run: pm2 restart node-app
+      continue-on-error: true
+    - name: Start node app
+      if: failure()
+      run: pm2 start 'npm run --prefix frontend serve' --name node-app
   kotlin-job:
     runs-on: self-hosted
     steps:
@@ -41,6 +47,7 @@ jobs:
       run: gradle build -p backend/
     - name: Restart kotlin application
       run: pm2 restart kotlin-app
+      continue-on-error: true
     - name: Start kotlin app
       if: failure()
       run: pm2 start 'gradle run -p backend/' --name kotlin-app
