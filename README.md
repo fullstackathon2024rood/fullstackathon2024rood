@@ -1,3 +1,6 @@
 # fullstackathon2024rood
 
-Authors: Emil van Galen
+## Authors
+
+Emil van Galen
+Jasper Bogers
