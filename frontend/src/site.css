@@ -34,6 +34,10 @@ body {
     margin-left: 100%;
 }
 
+.jakobNielsenNightmareActive .formField:hover button#upload {
+    margin-right: 100%;
+}
+
 .centerContainer {
     margin-left: auto;
     margin-right: auto;
@@ -61,8 +65,10 @@ main {
     margin-right: auto;
 }
 
-h1 {
+h1, h2 {
     color: #02b4e0;
+    margin: 0;
+    padding: 0;
 }
 
 button, input[type="button"] {
@@ -77,6 +83,23 @@ button, input[type="button"] {
 
     border-radius: .5rem;
     cursor: pointer;
+}
+
+form {
+    margin-top: 2rem;
+    border: 1px solid #efeff4;
+    padding: 1rem;
+}
+
+.formField.submit {
+    display: flex;
+    justify-content: end;
+}
+
+#submit:disabled {
+    background-color: #efeff4; /* Divotion Green */
+    color: #000;
+    cursor: default;
 }
 
 label {

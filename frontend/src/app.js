@@ -53,6 +53,7 @@ export class App extends LitElement {
                 html`<ui-timeline-message .messageText=${message.messageText} imageUrl="${message.imageUrl}"></ui-timeline-message>`)}
 
             <form @submit="${this.onSubmit}" action="#/">
+              <h2>New Message</h2>
               <div class="formField">
                 <label for="messageText" class="labelForTextarea">Message</label>
                 <textarea id="messageText" name="message-text"></textarea>
@@ -60,8 +61,8 @@ export class App extends LitElement {
               <div class="formField">
                 <ui-file-upload-button name="file" text="Upload"></ui-file-upload-button>
               </div>
-              <div class="formField">
-                <button type="submit">submit</button>
+              <div class="formField submit">
+                <button type="submit" id="submit">submit</button>
               </div>
 
             </form>
