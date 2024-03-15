@@ -77,7 +77,7 @@ export class App extends LitElement {
                 <ui-file-upload-button name="file" text="Upload"></ui-file-upload-button>
               </div>
               <div class="formField submit">
-                <button type="submit" id="submit">submit</button>
+                <button type="submit" id="submit">Submit</button>
               </div>
 
             </form>
