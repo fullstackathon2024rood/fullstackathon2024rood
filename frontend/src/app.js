@@ -24,7 +24,7 @@ export class App extends LitElement {
   // Render the UI as a function of component state
   render() {
     return html`
-      Logo
+      <img src="./src/assets/facebook.svg" id="logoImage">
 
       <h1>Timeline</h1>
 
