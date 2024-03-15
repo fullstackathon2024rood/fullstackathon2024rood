@@ -16,12 +16,13 @@
 - Brainwave Conductor - 5 pts (brainstoremed)
 - Team Harmony - 5 pts (all pushed something)
 - Documentation Guru - 5 pts
+- Code buddy - 5 pts (all reviewed pull requests)
 
 ### cyber sentinel
 - none
 
 ### doctor stack
-- none
+- NoSQL Navigator - 5 pts (we kiezen bewust voor geen relationale database)
 
 ### Pixel Boy
 - The Chroma Explorer - 5 pts (night vision)
@@ -30,6 +31,9 @@
 
 ### To claim later on (but already implemented)
 - Adaptive mastermind - 5 pts (Pixel Boy)
+- Shift left extremist - 5 pts (Doctor Stack) (DependaBot van GitHub Actions toevoegen)
+- HotFix haste - 5 pts (Cyber Sentinel) (GitHub Actions CI/CD)
+- Compliance champion - 5 pts (Cyber Sentinel) (uplodaded en rendered files worden niet opgeslagen voor of na obfuscation)
 
 ## Architecture
 
