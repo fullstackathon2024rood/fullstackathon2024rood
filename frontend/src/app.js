@@ -1,5 +1,6 @@
 import {LitElement, css, html} from 'lit';
 import './file-upload-button.js';
+import {toggleNightmare} from './jakob-nielsen-nightmare.js';
 
 export class App extends LitElement {
   createRenderRoot() {
@@ -24,7 +25,7 @@ export class App extends LitElement {
   // Render the UI as a function of component state
   render() {
     return html`
-      <img src="./src/assets/facebook.svg" id="logoImage">
+      <img src="./src/assets/facebook.svg" id="logoImage" @click="${toggleNightmare}">
 
       <h1>Timeline</h1>
 
