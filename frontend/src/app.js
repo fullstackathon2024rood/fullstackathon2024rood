@@ -32,12 +32,17 @@ export class App extends LitElement {
         <h1>Timeline</h1>
   
         <form @submit="${this.onSubmit}" action="#/">
-            <label for="messageText">Message</label>
+          <div class="formField">
+            <label for="messageText" class="labelForTextarea">Message</label>
             <textarea id="messageText" name="message-text"></textarea>
-  
+          </div>
+          <div class="formField">
             <ui-file-upload-button name="files" text="Upload"></ui-file-upload-button>
-  
+          </div>
+          <div class="formField">
             <button type="submit">submit</button>
+          </div>
+          
         </form>
 
       </div>
