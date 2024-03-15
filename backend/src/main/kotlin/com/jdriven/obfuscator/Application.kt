@@ -26,7 +26,7 @@ fun main() {
         }
     }
 
-    app.start(7070)
+    app.start(8080)
 }
 
 class Obfuscator {
