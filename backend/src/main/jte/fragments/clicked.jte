@@ -1,0 +1,1 @@
+<p hx-post="/clicked" hx-swap="outerHTML">Klikken is verboden, klikken mag je niet!</p>
