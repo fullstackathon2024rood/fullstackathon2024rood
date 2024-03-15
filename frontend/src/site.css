@@ -48,6 +48,18 @@ body {
     padding: 10px;
 }
 
+header {
+    border-bottom: 1px solid #02b4e0;
+    margin-bottom: 1rem;
+}
+
+footer {
+    border-top: 1px solid #02b4e0;
+    margin-top: 1rem;
+    padding: 1rem;
+    color: #4a5568;
+}
+
 .logoContainer {
     display: flex;
     align-items: center;

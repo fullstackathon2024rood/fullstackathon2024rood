@@ -44,7 +44,7 @@ export class App extends LitElement {
   render() {
     return html`
         <div class="centerContainer">
-        <div class="logoContainer"><img src="./src/assets/facebook.svg" id="logoImage" @click="${toggleNightmare}"></div>
+          <header class="logoContainer"><img src="./src/assets/facebook.svg" id="logoImage" @click="${toggleNightmare}"></header>
 
           <main>
             <h1>Timeline</h1>
@@ -67,6 +67,8 @@ export class App extends LitElement {
 
             </form>
           </main>
+          
+          <footer>© Team Red - Fullstackathon 2024</footer>
 
       </div>
     `;

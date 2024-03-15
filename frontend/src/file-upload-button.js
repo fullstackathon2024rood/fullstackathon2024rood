@@ -4,6 +4,7 @@ export class FileUploadButton extends LitElement {
   static properties = {
     name: {},
     text: {},
+    fileName: undefined
   };
 
   createRenderRoot() {
