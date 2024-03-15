@@ -29,7 +29,7 @@
 - Pixel Pioneer - 5 pts (reusable component)
 
 ### To claim later on (but already implemented)
-- none
+- Adaptive mastermind - 5 pts (Pixel Boy)
 
 ## Architecture
 
