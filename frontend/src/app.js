@@ -25,18 +25,22 @@ export class App extends LitElement {
   // Render the UI as a function of component state
   render() {
     return html`
-      <img src="./src/assets/facebook.svg" id="logoImage" @click="${toggleNightmare}">
+      
+      <div class="centerContainer">
+        <div class="logoContainer"><img src="./src/assets/facebook.svg" id="logoImage" @click="${toggleNightmare}"></div>
+  
+        <h1>Timeline</h1>
+  
+        <form @submit="${this.onSubmit}" action="#/">
+            <label for="messageText">Message</label>
+            <textarea id="messageText" name="message-text"></textarea>
+  
+            <ui-file-upload-button name="files" text="Upload"></ui-file-upload-button>
+  
+            <button type="submit">submit</button>
+        </form>
 
-      <h1>Timeline</h1>
-
-      <form @submit="${this.onSubmit}" action="#/">
-          <label for="messageText">Message</label>
-          <textarea id="messageText" name="message-text"></textarea>
-
-          <ui-file-upload-button name="files" text="Upload"></ui-file-upload-button>
-
-          <button type="submit">submit</button>
-      </form>
+      </div>
     `;
   }
 }
