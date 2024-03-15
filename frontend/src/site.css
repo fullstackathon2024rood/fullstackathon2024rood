@@ -192,7 +192,13 @@ textarea {
     justify-content: center;
 }
 
-
+.response.hidden {
+   display: none;
+}
+.response-text {
+    font-weight: bold;
+    font-style: italic;
+}
 
 @media (prefers-color-scheme: dark) {
     :root {
