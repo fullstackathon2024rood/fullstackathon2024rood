@@ -10,19 +10,8 @@ export class FileUploadButton extends LitElement {
     // loading: false,
     fileName: undefined,
     imageSrc: {},
-    predictions: {},
-    advice: {}
+    predictions: {}
   };
-
-  connectedCallback() {
-    super.connectedCallback()
-    fetch('https://faas-ams3-2a2df116.doserverless.co/api/v1/web/fn-31abe079-0e1e-4595-bf92-7723fc6767bb/default/helloWorld',{
-      method: 'GET'
-    }).then(response=>response.json())
-    .then(response => {
-      this.advice = response.advice;
-    });
-  }
 
   createRenderRoot() {
     return this;
@@ -52,23 +41,12 @@ export class FileUploadButton extends LitElement {
             var submitContainer = document.getElementById('submit');
             submitContainer.classList.add('disabled');
 
-            console.log(this.advice[0])
-
             setTimeout((
                 cocoSsd.load().then(model => {
                   model.detect(img).then(predictions => {
                     console.log('Predictions: ', predictions);
-                    if(!!predictions && !!predictions[0]) {
-                      const isContainedInAdvice = this.advice.includes(predictions[0].class)
-                      if (isContainedInAdvice) {
-                        this.predictions = "This image contains an image of a person. Consider if you think that this image could be used maliciously"
-                      } else {
-                        this.predictions = "This image seems safe to upload"
-                      }
-                      this.requestUpdate();
-                    } else {
-                      this.predictions = "This image seems safe to upload"
-                    }
+                    this.predictions = predictions[0].class
+                    this.requestUpdate();
                     loading = false;
                     spinnerContainer.classList.remove('show-spinner');
                     fileUploadButton.classList.remove('disabled');
