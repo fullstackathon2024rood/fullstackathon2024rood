@@ -59,7 +59,7 @@ Build using `./gradlew build`
 Run using `./gradlew run`
 
 Example call using cURL:
-`curl -v -F message-text=testmessage -F file=@src/main/resources/plain_black.jpeg localhost:7070/obfuscate`
+`curl -v -F message-text=testmessage -F file=@src/main/resources/plain_black.jpeg localhost:8080/obfuscate`
 
 ### Frontend
 
