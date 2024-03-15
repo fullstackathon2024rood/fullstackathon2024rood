@@ -2,6 +2,17 @@
 
 }
 
+
+.jakobNielsenNightmareActive textarea:hover,
+.jakobNielsenNightmareActive input:hover,
+.jakobNielsenNightmareActive button:hover,
+.jakobNielsenNightmareActive .file-upload:hover {
+    color: red;
+    visibility: hidden;
+    position: absolute;
+    margin-top: 0;
+}
+
 #logoImage {
     max-width: 200px;
     width: 100vw;
