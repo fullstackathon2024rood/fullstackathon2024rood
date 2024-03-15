@@ -4,6 +4,8 @@
 name: CI ALL THE CD
 
 on:
+  push:
+    branches: ['main']
   pull_request:
     branches: [ "main" ]
 
