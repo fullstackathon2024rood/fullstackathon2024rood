@@ -43,4 +43,4 @@ jobs:
       run: pm2 restart kotlin-app
     - name: Start kotlin app
       if: failure()
-      run: pm2 start 'gradle run -p backend/'' --name kotlin-app
+      run: pm2 start 'gradle run -p backend/' --name kotlin-app
