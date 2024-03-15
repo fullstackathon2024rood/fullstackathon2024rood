@@ -10,32 +10,34 @@ export class App extends LitElement {
     super();
 
     setTimeout(() => {
-      fetch('/messages', {method: 'GET'})
-        .then(response => response.json())
-        .then(responseJson => {
-          this.messages = responseJson;
-          this.requestUpdate();
-        });
-    }, 1000);
+      this.loadMessages();
+    }, 2000);
+  }
+
+  loadMessages () {
+    fetch('/messages', {method: 'GET'})
+      .then(response => response.json())
+      .then(responseJson => {
+        this.messages = responseJson;
+        this.requestUpdate();
+      });
   }
 
   createRenderRoot() {
     return this;
   }
 
-  onSubmit(event) {
+  async onSubmit(event) {
     const formData = new FormData(event.target);
-    const files = formData.get('files');
-    const url = URL.createObjectURL(files);
-
-    console.log(url);
-
-    // fetch('/api/medium/article',{
-    //   method: 'POST',
-    //   body: new FormData(event.target)
-    // });
 
     event.preventDefault();
+
+    await fetch('/messages',{
+      method: 'POST',
+      body: new FormData(event.target)
+    });
+
+    this.loadMessages();
   }
 
   // Render the UI as a function of component state
