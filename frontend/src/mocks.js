@@ -19,6 +19,7 @@ export const worker = setupWorker(
     const file = formData.get('file');
     uploadedFiles[file.name] = file;
 
+    // Change url "/uploaded-images" to real url
     messages.push({ messageText: formData.get('message-text'), imageUrl: `/uploaded-images/${file.name}` });
 
     worker.use(http.get('/messages', () => HttpResponse.json(messages)));

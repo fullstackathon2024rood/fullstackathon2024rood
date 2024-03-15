@@ -52,6 +52,7 @@ export class App extends LitElement {
             ${this.messages?.map(message =>
                 html`<ui-timeline-message .messageText=${message.messageText} imageUrl="${message.imageUrl}"></ui-timeline-message>`)}
 
+            <div class="form-line"></div>
             <form @submit="${this.onSubmit}" action="#/">
               <h2>New Message</h2>
               <div class="formField">

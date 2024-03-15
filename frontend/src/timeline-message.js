@@ -14,8 +14,8 @@ export class TimelineMessage extends LitElement {
   render() {
     return html`
       <div class="timeline-message">
-          <span class="message">${this.messageText}</span>
-          <img src="${this.imageUrl}" width="100px"></img>
+          <div class="timeline-message__message-text">${this.messageText}</div>
+          <div class="timeline-message__image"><img src="${this.imageUrl}" width="100px"></img></div>
       </div>
     `;
   }

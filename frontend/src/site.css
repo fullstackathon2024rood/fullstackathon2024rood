@@ -97,15 +97,36 @@ button, input[type="button"] {
     cursor: pointer;
 }
 
-form {
+.form-line {
     margin-top: 2rem;
+    border: 3px solid #4a5568;
+}
+
+form {
     border: 1px solid #efeff4;
+    margin-top: 2rem;
     padding: 1rem;
 }
 
 .formField.submit {
     display: flex;
     justify-content: end;
+}
+
+.timeline-message {
+    border: 1px solid #efeff4;
+    margin-top: 2rem;
+    padding: 1rem;
+}
+
+.timeline-message__message-text {
+    margin-bottom: 1rem;
+    white-space: pre-line
+}
+
+.timeline-message__image {
+    display: flex;
+    justify-content: center;
 }
 
 #submit:disabled {
