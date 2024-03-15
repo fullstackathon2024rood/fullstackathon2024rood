@@ -29,9 +29,22 @@ export class App extends LitElement {
   }
 
   async onSubmit(event) {
-    const formData = new FormData(event.target);
-
     event.preventDefault();
+
+    var submitButton = document.getElementById('submit');
+    if(submitButton.classList.contains('disabled')) {
+      return;
+    }
+
+    const formData = new FormData(event.target);
+    if(formData.get("message-text").trim() == '') {
+      alert('No text message is given')
+      return;
+    }
+    if(formData.get("file").name.trim() == '') {
+      alert('No image is chosen yet')
+      return;
+    }
 
     await fetch('/messages',{
       method: 'POST',
@@ -64,7 +77,7 @@ export class App extends LitElement {
                 <ui-file-upload-button name="file" text="Upload"></ui-file-upload-button>
               </div>
               <div class="formField submit">
-                <button type="submit" id="submit" .disabled="${loading}">submit</button>
+                <button type="submit" id="submit">submit</button>
               </div>
 
             </form>

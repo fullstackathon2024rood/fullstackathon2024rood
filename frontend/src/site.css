@@ -129,7 +129,7 @@ form {
     justify-content: center;
 }
 
-#submit:disabled, input[type="button"]:disabled {
+#submit:disabled, input[type="button"]:disabled, .disabled {
     background-color: #efeff4; /* Divotion Green */
     color: #000;
     cursor: default;
@@ -140,7 +140,7 @@ label {
     color: #2fc247;
 }
 
-button:hover, input[type="button"]:hover {
+button:not(.disabled):hover, input[type="button"]:not(.disabled):hover {
     background-color: #72ed84;
 }
 

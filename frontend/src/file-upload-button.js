@@ -34,8 +34,12 @@ export class FileUploadButton extends LitElement {
 
             const img = document.getElementById('preview');
 
-            var spinnerContainer = document.getElementById('spinner') // Using a class instead, see note below.
-            spinnerContainer.classList.toggle('show-spinner');
+            var spinnerContainer = document.getElementById('spinner');
+            spinnerContainer.classList.add('show-spinner');
+            var fileUploadButton = document.getElementById('file-upload-button');
+            fileUploadButton.classList.add('disabled');
+            var submitContainer = document.getElementById('submit');
+            submitContainer.classList.add('disabled');
 
             setTimeout((
                 cocoSsd.load().then(model => {
@@ -44,7 +48,9 @@ export class FileUploadButton extends LitElement {
                     this.predictions = predictions[0].class
                     this.requestUpdate();
                     loading = false;
-                    spinnerContainer.classList.toggle('show-spinner');
+                    spinnerContainer.classList.remove('show-spinner');
+                    fileUploadButton.classList.remove('disabled');
+                    submitContainer.classList.remove('disabled');
                   });
                 })
             ), 500);
@@ -59,7 +65,7 @@ export class FileUploadButton extends LitElement {
   render() {
     return html`
       <div class="file-upload">
-          <input type="button" .disabled="${loading}" value="${this.text}" @click="${this.onClick}">
+          <input type="button" id="file-upload-button" .disabled="${loading}" value="${this.text}" @click="${this.onClick}">
         
           <div class="file-upload__image-to-upload">
             <div class="spinner" id="spinner"><img src="/src/assets/loading-load.gif"></div>
