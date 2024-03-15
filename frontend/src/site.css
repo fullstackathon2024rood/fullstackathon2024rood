@@ -3,6 +3,13 @@
     font-size: 62.5%;
     word-break: break-word;
     background-color: #efeff4;
+
+    --max-width-view: 50vw;
+    --max-width-main: 35rem;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
@@ -17,14 +24,20 @@ body {
 .jakobNielsenNightmareActive .file-upload:hover {
     color: red;
     visibility: hidden;
-    position: absolute;
+    /*position: absolute;*/
     margin-top: 0;
+
+}
+
+.jakobNielsenNightmareActive .formField:hover input,
+.jakobNielsenNightmareActive .formField:hover button {
+    margin-left: 100%;
 }
 
 .centerContainer {
     margin-left: auto;
     margin-right: auto;
-    width: 8em;
+    max-width: var(--max-width-view);
     min-width: 320px;
     background-color: #fff;
 
@@ -40,6 +53,12 @@ body {
 #logoImage {
     max-width: 200px;
     width: 100vw;
+}
+
+main {
+    max-width: var(--max-width-main);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 h1 {
@@ -69,8 +88,6 @@ button:hover, input[type="button"]:hover {
     background-color: #72ed84;
 }
 
-
-
 .formField:not(:first-child) {
     margin-top: 2rem;
 }
@@ -78,6 +95,15 @@ button:hover, input[type="button"]:hover {
 .labelForTextarea {
     display: inline-block;
     width: 100%;
+}
+
+textarea {
+    border: 1px solid #2fc247;
+    resize: none;
+
+    height: 9em;
+    width: 35rem;
+    max-width: 100%;
 }
 
 @media (prefers-color-scheme: dark) {

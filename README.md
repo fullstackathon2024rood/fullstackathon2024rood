@@ -12,9 +12,24 @@
 
 ## Achievements
 
+### captain unity
 - Brainwave Conductor - 5 pts (brainstoremed)
 - Team Harmony - 5 pts (all pushed something)
+- Documentation Guru - 5 pts
+
+### cyber sentinel
+- none
+
+### doctor stack
+- none
+
+### Pixel Boy
+- The Chroma Explorer - 5 pts (night vision)
+- Jakob Nielsen’s Nightmare - 5 pts (nightmare mode)
 - Pixel Pioneer - 5 pts (reusable component)
+
+### To claim later on (but already implemented)
+- Adaptive mastermind - 5 pts (Pixel Boy)
 
 ## Architecture
 
@@ -36,13 +51,12 @@ The application can receive a multipart POST request that contains 2 fields:
 
 ### Frontend
 
+#### dev environment
+- npm install
+- npm run
+
 #### Goal
 
 #### Key technology
 * Lit
-* 
-
-### To claim later on (but already implemented)
-- The Chroma Explorer - 5 pts (night vision)
-- Jakob Nielsen’s Nightmare - 5 pts (nightmare mode)
-
+*
