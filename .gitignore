@@ -23,5 +23,10 @@
 hs_err_pid*
 replay_pid*
 
-# IntelliJ
+# Node artifact files
+frontend/node_modules/
+frontend/dist/
+
+# JetBrains IDE
 .idea/
+*.iml
