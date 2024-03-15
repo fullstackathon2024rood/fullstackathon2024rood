@@ -1,9 +1,11 @@
 plugins {
-    kotlin("jvm") version("1.9.23")
+    kotlin("jvm") version ("1.9.23")
+    id("application")
 }
 
 group = "com.jdriven"
 version = "1.0-SNAPSHOT"
+application.mainClass = "com.jdriven.obfuscator.ApplicationKt"
 
 kotlin {
     jvmToolchain(21)
