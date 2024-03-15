@@ -37,6 +37,12 @@
 
 ## Architecture
 
+### C4
+
+#### System
+
+![C4 System Context](fullstackathon2024rood-c4-system.png)
+
 ### Backend
 
 #### Goal
