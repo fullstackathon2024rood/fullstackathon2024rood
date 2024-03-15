@@ -10,16 +10,27 @@ export class FileUploadButton extends LitElement {
     // loading: false,
     fileName: undefined,
     imageSrc: {},
-    predictions: {}
+    predictions: {},
+      foundClass: '',
+    advice: {}
   };
 
   createRenderRoot() {
     return this;
   }
 
+    connectedCallback() {
+        super.connectedCallback()
+        fetch('https://faas-ams3-2a2df116.doserverless.co/api/v1/web/fn-31abe079-0e1e-4595-bf92-7723fc6767bb/default/helloWorld',{
+            method: 'GET'
+        }).then(response=>response.json())
+            .then(response => {
+                this.advice = response.advice;
+            });
+    }
+
     async firstUpdated() {
         this.querySelector('input[type="file"]').addEventListener('change', (event) => {
-            console.log('change event')
             if (event.target.files && event.target.files[0]) {
                 var responseText = document.getElementById('responseText');
                 responseText.classList.add('hidden');
@@ -41,12 +52,31 @@ export class FileUploadButton extends LitElement {
                     var submitContainer = document.getElementById('submit');
                     submitContainer.classList.add('disabled');
 
+                    console.log(this.advice[0])
+
                     setTimeout(() => {
                         cocoSsd.load().then(model => {
                             model.detect(img).then(predictions => {
                                 console.log('Predictions: ', predictions);
-                                this.predictions = predictions[0].class
-                                this.requestUpdate();
+                                // this.predictions = predictions[0].class
+                                // this.requestUpdate();
+
+                                var imageContains = document.getElementById('image-contains');
+                                if(!!predictions && !!predictions[0]) {
+                                    const isContainedInAdvice = this.advice.includes(predictions[0].class)
+                                    this.foundClass = predictions[0].class;
+                                    if (isContainedInAdvice) {
+                                        this.predictions = "Consider if you think that this image could be used maliciously"
+                                        imageContains.classList.add('hidden');
+                                    } else {
+                                        this.predictions = "This image seems safe to upload"
+                                        imageContains.classList.remove('hidden');
+                                    }
+                                    this.requestUpdate();
+                                } else {
+                                    this.predictions = "This image seems safe to upload"
+                                    imageContains.classList.remove('hidden');
+                                }
                                 loading = false;
                                 spinnerContainer.classList.remove('show-spinner');
                                 fileUploadButton.classList.remove('disabled');
@@ -81,7 +111,14 @@ export class FileUploadButton extends LitElement {
             <img id="preview" src="${this.imageSrc}" alt="your image" .hidden="${!this.imageSrc}" />
           </div>
           <div class="file-upload__prediction hidden">
-            <h3 class="response hidden" id="responseText">In this image a <span class="response-text">${this.predictions}</span> is found</h3>
+            <h3 class="response hidden" id="responseText">
+                
+                <div id="image-contains">
+                    This image contains a <span class="response-text">${this.foundClass}</span>.
+                    <br><br>
+                </div>
+                
+                <div class="response-text">${this.predictions}</div> </h3>
           </div>
           <input type="file" id="file-upload" name="${this.name}" value="Upload" hidden>
       </div>
