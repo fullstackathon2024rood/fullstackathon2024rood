@@ -12,6 +12,10 @@
 
 ## Achievements
 
-- Brainwave Conductor - 5 pts
-- Team Harmony - 5 pts
-- Pixel Pioneer - 5 pts
+- Brainwave Conductor - 5 pts (brainstoremed)
+- Team Harmony - 5 pts (all pushed something)
+- Pixel Pioneer - 5 pts (reusable component)
+
+### To claim later on (but already implemented)
+- The Chroma Explorer - 5 pts (night vision)
+

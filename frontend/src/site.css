@@ -1,0 +1,9 @@
+:root {
+
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        filter: invert(1);
+    }
+}
