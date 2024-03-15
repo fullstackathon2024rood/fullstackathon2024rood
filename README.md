@@ -49,6 +49,14 @@ The application can receive a multipart POST request that contains 2 fields:
 - file
 - message-text
 
+#### Run and use
+
+Build using `./gradlew build`
+Run using `./gradlew run`
+
+Example call using cURL:
+`curl -v -F message-text=testmessage -F file=@src/main/resources/plain_black.jpeg localhost:7070/obfuscate`
+
 ### Frontend
 
 #### dev environment
