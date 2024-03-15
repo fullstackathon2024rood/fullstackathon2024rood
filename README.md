@@ -51,6 +51,10 @@ The application can receive a multipart POST request that contains 2 fields:
 
 ### Frontend
 
+#### dev environment
+- npm install
+- npm run
+
 #### Goal
 
 #### Key technology
