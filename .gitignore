@@ -30,3 +30,10 @@ frontend/dist/
 # JetBrains IDE
 .idea/
 *.iml
+
+# Backend
+*.gradle
+**/build/
+**/gradle/wrapper/gradle-wrapper.jar
+**/src/main/**/build/
+**/src/test/**/build/

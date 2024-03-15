@@ -10,7 +10,7 @@ export class FileUploadButton extends LitElement {
     return this;
   }
 
-  onClick() {
+  async onClick() {
     this.querySelector('input[type="file"]').showPicker();
   }
 
