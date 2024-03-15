@@ -33,7 +33,10 @@ jobs:
         distribution: 'zulu' # See 'Supported distributions' for available options
         java-version: '21'
     - name: Setup Gradle
-      uses: gradle/gradle-build-action@v3
+      uses: gradle/actions/setup-gradle@v3
+      id: setup-gradle
+      with:
+        gradle-version: release-candidate
     - name: Build with Gradle
       run: gradle build -p backend/
     - name: Restart kotlin application
