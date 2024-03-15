@@ -18,4 +18,5 @@
 
 ### To claim later on (but already implemented)
 - The Chroma Explorer - 5 pts (night vision)
+- Jakob Nielsen’s Nightmare - 5 pts (nightmare mode)
 
