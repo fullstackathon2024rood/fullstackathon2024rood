@@ -4,8 +4,6 @@
 name: CI ALL THE CD
 
 on:
-  push:
-    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
@@ -37,4 +35,4 @@ jobs:
       - name: Build with Gradle
         run: backend/gradlew build -p backend/
       - name: Restart kotlin application
-        run: backend/gradlew run -p backend/
+        run: pm2 restart kotlin-app
