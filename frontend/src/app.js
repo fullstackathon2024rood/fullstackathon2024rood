@@ -4,14 +4,19 @@ import './timeline-message.js';
 import {toggleNightmare} from './jakob-nielsen-nightmare.js';
 
 export class App extends LitElement {
-  messages = [];
+  static get properties() {
+      return {
+          messages:{
+              type:Array,
+              hasChanged: (value, oldValue) => true
+          }
+      }
+  }
+
+  // messages = [];
 
   constructor() {
     super();
-
-    /*setTimeout(() => {
-      this.loadMessages();
-    }, 2000);*/
   }
 
   firstUpdated(changedProperties) {
@@ -49,20 +54,34 @@ export class App extends LitElement {
       return;
     }
 
+
+
+
     console.log('START of http://206.189.3.8:8080/obfuscate')
     await fetch('http://206.189.3.8:8080/obfuscate',{
+    /*console.log('START of https://king-prawn-app-uh9u9.ondigitalocean.app/obfuscate')
+    await fetch('https://king-prawn-app-uh9u9.ondigitalocean.app/obfuscate',{*/
       method: 'PUT',
       body: new FormData(event.target)
-    }).then(response=> {
-      console.log('RAW result of http://206.189.3.8:8080/obfuscate', response)
-      return response.json()
     })
-        .then(response => {
-          console.log('JSON result of http://206.189.3.8:8080/obfuscate', response)
-          // this.advice = response.advice;
+        .then(async (response) => response)
+        .then(response => response.blob())
+        .then(blob => {
+          const imageUrl = URL.createObjectURL(blob);
+          const imgElement = document.createElement('img');
+          imgElement.src = imageUrl;
+
+            this.messages = [
+                ...this.messages,
+                {
+                    messageText: formData.get("message-text"),
+                    imageUrl: imageUrl
+                }];
+
+          this.requestUpdate();
         });
 
-    this.loadMessages();
+    // this.loadMessages();
   }
 
   // Render the UI as a function of component state
@@ -76,7 +95,7 @@ export class App extends LitElement {
 
             ${this.messages?.map(message =>
                 html`<ui-timeline-message .messageText=${message.messageText} imageUrl="${message.imageUrl}"></ui-timeline-message>`)}
-
+            
             <div class="form-line"></div>
             <form @submit="${this.onSubmit}" action="#/">
               <h2>New Message</h2>
