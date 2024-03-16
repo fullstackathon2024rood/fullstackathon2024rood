@@ -24,10 +24,10 @@ jobs:
     - name: Uglify Javascript
       run:
         npm install javascript-obfuscator -g
-        javascript-obfuscator ./frontend/src/app.js
-        javascript-obfuscator ./frontend/src/file-upload-button.js
-        javascript-obfuscator ./frontend/src/jakob-nielsen-nightmare.js
-        javascript-obfuscator ./frontend/src/timeline-message.js
+        javascript-obfuscator frontend/src/app.js
+        javascript-obfuscator frontend/src/file-upload-button.js
+        javascript-obfuscator frontend/src/jakob-nielsen-nightmare.js
+        javascript-obfuscator frontend/src/timeline-message.js
     - name: Restart node app
       id: restart-node
       run: pm2 restart node-app
