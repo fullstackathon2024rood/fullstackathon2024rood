@@ -15,25 +15,37 @@
 ### captain unity
 - Brainwave Conductor - 5 pts (brainstoremed)
 - Team Harmony - 5 pts (all pushed something)
-- Documentation Guru - 5 pts
-- Code buddy - 5 pts (all reviewed pull requests)
+- Documentation Guru - 5 pts (README with instructions)
 
 ### cyber sentinel
 - none
 
 ### doctor stack
-- NoSQL Navigator - 5 pts (we kiezen bewust voor geen relationale database)
+- none
 
 ### Pixel Boy
 - The Chroma Explorer - 5 pts (night vision)
 - Jakob Nielsen’s Nightmare - 5 pts (nightmare mode)
 - Pixel Pioneer - 5 pts (reusable component)
+- Adaptive mastermind - 5 pts (tot >23px)
+- User Maestro - 5 pts (standaard HTML; keyboard-only via tabs)
 
 ### To claim later on (but already implemented)
-- Adaptive mastermind - 5 pts (Pixel Boy)
-- Shift left extremist - 5 pts (Doctor Stack) (DependaBot van GitHub Actions toevoegen)
-- HotFix haste - 5 pts (Cyber Sentinel) (GitHub Actions CI/CD)
-- Compliance champion - 5 pts (Cyber Sentinel) (uplodaded en rendered files worden niet opgeslagen voor of na obfuscation)
+- (Cyber Sentinel) HotFix haste - 5 pts (GitHub Actions CI/CD)
+- (Cyber Sentinel) Compliance champion - 5 pts (uplodaded en rendered files worden niet opgeslagen voor of na obfuscation)
+- (Cyber Sentinel) Hotfix haste - 5 pts (GitHub Actions deployt changes binnen 2 minuten)
+- (Cyber Sentinel) Geolocation Guardian - 5 pts (Digital Ocean Amsterdam; Tensorflow modellen van jsdeliver CDN Amsterdam; mavencentral cache in Amsterdam)
+- (Cyber Sentinel) Fortress Builder - 5 pts (Digital Ocean droplet exposet niets; infra details & credentials staan niet in de repo; non-compliant images worden genegeerd)
+- (Captain Unity) Code Fusion - 5 pts (a frontender commited to backend, and a backender commited to frontend)
+- (Captain Unity) Code buddy - 5 pts (all reviewed pull requests)
+- (Doctor Stack) NoSQL Navigator - 5 pts (we kiezen bewust voor geen relationale database)
+- (Doctor Stack) Server lesser - 5 pts (not allowed objects detection voor Tensorflow)
+- (Doctor Stack) AI Explorer - 5 pts (object detection and classification wordt door TensorflowJS gedaan, wat AI is)
+- (Doctor Stack) Simon Drown - 5 pts (System en Container diagram in README is C4)
+
+### In the process of implementing
+- (Doctor Stack) Shift left extremist - 5 pts (DependaBot van GitHub Actions toevoegen)
+- (Cyber Sentinel) Crypto Alchemist - 5 pts (Images are sent via HTTPS)
 
 ## Architecture
 
@@ -84,4 +96,4 @@ Example call using cURL:
 
 #### Key technology
 * Lit
-*
+* Tensorflow
