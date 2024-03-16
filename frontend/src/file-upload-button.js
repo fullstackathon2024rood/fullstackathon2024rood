@@ -1,13 +1,14 @@
-import {LitElement, css, html, nothing} from 'lit';
+import {LitElement, html} from 'lit';
 
 
 export let loading = false;
+
+export let enabledPersonCheck = false;
 
 export class FileUploadButton extends LitElement {
   static properties = {
     name: {},
     text: {},
-    // loading: false,
     fileName: undefined,
     imageSrc: {},
     predictions: {},
@@ -29,7 +30,7 @@ export class FileUploadButton extends LitElement {
             });
     }
 
-    async firstUpdated() {
+    firstUpdated(changedProperties) {
         this.querySelector('input[type="file"]').addEventListener('change', (event) => {
             if (event.target.files && event.target.files[0]) {
                 var responseText = document.getElementById('responseText');
@@ -43,50 +44,50 @@ export class FileUploadButton extends LitElement {
                     loading = true;
                     this.requestUpdate();
 
-                    const img = document.getElementById('preview');
+                    if(enabledPersonCheck){
+                        const img = document.getElementById('preview');
+                        var spinnerContainer = document.getElementById('spinner');
+                        spinnerContainer.classList.add('show-spinner');
+                        var fileUploadButton = document.getElementById('file-upload-button');
+                        fileUploadButton.classList.add('disabled');
+                        var submitContainer = document.getElementById('submit');
+                        submitContainer.classList.add('disabled');
 
-                    var spinnerContainer = document.getElementById('spinner');
-                    spinnerContainer.classList.add('show-spinner');
-                    var fileUploadButton = document.getElementById('file-upload-button');
-                    fileUploadButton.classList.add('disabled');
-                    var submitContainer = document.getElementById('submit');
-                    submitContainer.classList.add('disabled');
+                        console.log(this.advice[0])
 
-                    console.log(this.advice[0])
+                        setTimeout(() => {
+                            cocoSsd.load().then(model => {
+                                model.detect(img).then(predictions => {
+                                    console.log('Predictions: ', predictions);
+                                    // this.predictions = predictions[0].class
+                                    // this.requestUpdate();
 
-                    setTimeout(() => {
-                        cocoSsd.load().then(model => {
-                            model.detect(img).then(predictions => {
-                                console.log('Predictions: ', predictions);
-                                // this.predictions = predictions[0].class
-                                // this.requestUpdate();
-
-                                var imageContains = document.getElementById('image-contains');
-                                this.foundClass = null;
-                                if(!!predictions && !!predictions[0]) {
-                                    const isContainedInAdvice = this.advice.includes(predictions[0].class)
-                                    this.foundClass = predictions[0].class;
-                                    if (isContainedInAdvice) {
-                                        this.predictions = "Consider if you think that this image could be used maliciously"
-                                        imageContains.classList.remove('hidden');
+                                    var imageContains = document.getElementById('image-contains');
+                                    this.foundClass = null;
+                                    if(!!predictions && !!predictions[0]) {
+                                        const isContainedInAdvice = this.advice.includes(predictions[0].class)
+                                        this.foundClass = predictions[0].class;
+                                        if (isContainedInAdvice) {
+                                            this.predictions = "Consider if you think that this image could be used maliciously"
+                                            imageContains.classList.remove('hidden');
+                                        } else {
+                                            this.predictions = "This image seems safe to upload"
+                                            imageContains.classList.remove('hidden');
+                                        }
+                                        this.requestUpdate();
                                     } else {
                                         this.predictions = "This image seems safe to upload"
-                                        imageContains.classList.remove('hidden');
+                                        imageContains.classList.add('hidden');
                                     }
-                                    this.requestUpdate();
-                                } else {
-                                    this.predictions = "This image seems safe to upload"
-                                    imageContains.classList.add('hidden');
-                                }
-                                loading = false;
-                                spinnerContainer.classList.remove('show-spinner');
-                                fileUploadButton.classList.remove('disabled');
-                                submitContainer.classList.remove('disabled');
-                                responseText.classList.remove('hidden');
+                                    loading = false;
+                                    spinnerContainer.classList.remove('show-spinner');
+                                    fileUploadButton.classList.remove('disabled');
+                                    submitContainer.classList.remove('disabled');
+                                    responseText.classList.remove('hidden');
+                                });
                             });
-                        });
-                    }, 500);
-
+                        }, 500);
+                    }
                 }
                 reader.readAsDataURL(event.target.files[0]);
             }

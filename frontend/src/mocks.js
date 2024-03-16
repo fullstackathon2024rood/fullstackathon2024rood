@@ -13,7 +13,7 @@ let messages = structuredClone(defaultMessages);
 export const worker = setupWorker(
   http.get('/messages', () => HttpResponse.json(messages)),
 
-  http.put('http://206.189.3.8:8080/obfuscate', async ({ request }) => {
+  /*http.put('http://206.189.3.8:8080/obfuscate', async ({ request }) => {
     const formData = await request.formData();
 
     const file = formData.get('file');
@@ -25,7 +25,7 @@ export const worker = setupWorker(
     worker.use(http.get('/messages', () => HttpResponse.json(messages)));
 
     return HttpResponse.json(undefined, { status: 200 });
-  }),
+  }),*/
 
   http.get('/uploaded-images/:imageName', async ({ params}) => {
     const file = uploadedFiles[params.imageName];

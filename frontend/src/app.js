@@ -9,9 +9,13 @@ export class App extends LitElement {
   constructor() {
     super();
 
-    setTimeout(() => {
+    /*setTimeout(() => {
       this.loadMessages();
-    }, 2000);
+    }, 2000);*/
+  }
+
+  firstUpdated(changedProperties) {
+    this.loadMessages();
   }
 
   loadMessages () {
@@ -45,10 +49,18 @@ export class App extends LitElement {
       return;
     }
 
+    console.log('START of http://206.189.3.8:8080/obfuscate')
     await fetch('http://206.189.3.8:8080/obfuscate',{
       method: 'PUT',
       body: new FormData(event.target)
-    });
+    }).then(response=> {
+      console.log('RAW result of http://206.189.3.8:8080/obfuscate', response)
+      return response.json()
+    })
+        .then(response => {
+          console.log('JSON result of http://206.189.3.8:8080/obfuscate', response)
+          // this.advice = response.advice;
+        });
 
     this.loadMessages();
   }
