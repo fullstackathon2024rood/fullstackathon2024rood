@@ -24,12 +24,17 @@ export class App extends LitElement {
   }
 
   loadMessages () {
-    fetch('/messages', {method: 'GET'})
+    /*fetch('/messages', {method: 'GET'})
       .then(response => response.json())
       .then(responseJson => {
         this.messages = responseJson;
         this.requestUpdate();
-      });
+      });*/
+
+      this.messages = [
+          {messageText: 'message one', imageUrl: '/src/assets/sample.png'},
+          {messageText: 'message two', imageUrl: '/src/assets/example.png'},
+      ]
   }
 
   createRenderRoot() {
