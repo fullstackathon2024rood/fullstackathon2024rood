@@ -35,6 +35,7 @@
 - (Cyber Sentinel) Compliance champion - 5 pts (uplodaded en rendered files worden niet opgeslagen voor of na obfuscation)
 - (Cyber Sentinel) Hotfix haste - 5 pts (GitHub Actions deployt changes binnen 2 minuten)
 - (Cyber Sentinel) Geolocation Guardian - 5 pts (Digital Ocean Amsterdam; Tensorflow modellen van jsdeliver CDN Amsterdam; mavencentral cache in Amsterdam)
+- (Cyber Sentinel) Fortress Builder - 5 pts (Digital Ocean droplet exposet niets; infra details & credentials staan niet in de repo; non-compliant images worden genegeerd)
 - (Captain Unity) Code Fusion - 5 pts (a frontender commited to backend, and a backender commited to frontend)
 - (Captain Unity) Code buddy - 5 pts (all reviewed pull requests)
 - (Doctor Stack) NoSQL Navigator - 5 pts (we kiezen bewust voor geen relationale database)
