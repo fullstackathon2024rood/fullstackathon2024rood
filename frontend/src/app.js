@@ -46,8 +46,8 @@ export class App extends LitElement {
       return;
     }
 
-    await fetch('/messages',{
-      method: 'POST',
+    await fetch('/obfuscate',{
+      method: 'PUT',
       body: new FormData(event.target)
     });
 

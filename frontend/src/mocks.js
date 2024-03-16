@@ -13,7 +13,7 @@ let messages = structuredClone(defaultMessages);
 export const worker = setupWorker(
   http.get('/messages', () => HttpResponse.json(messages)),
 
-  http.post('/messages', async ({ request }) => {
+  http.put('/obfuscate', async ({ request }) => {
     const formData = await request.formData();
 
     const file = formData.get('file');
