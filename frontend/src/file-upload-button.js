@@ -3,7 +3,7 @@ import {LitElement, html} from 'lit';
 
 export let loading = false;
 
-export let enabledPersonCheck = false;
+export let enabledPersonCheck = true;
 
 export class FileUploadButton extends LitElement {
   static properties = {
@@ -35,6 +35,9 @@ export class FileUploadButton extends LitElement {
             if (event.target.files && event.target.files[0]) {
                 var responseText = document.getElementById('responseText');
                 responseText.classList.add('hidden');
+
+                var imagePreview = document.getElementById('preview');
+                imagePreview.classList.remove('hidden');
 
                 var reader = new FileReader();
 
@@ -87,6 +90,8 @@ export class FileUploadButton extends LitElement {
                                 });
                             });
                         }, 500);
+                    } else {
+                        loading = false;
                     }
                 }
                 reader.readAsDataURL(event.target.files[0]);

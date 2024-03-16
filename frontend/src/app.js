@@ -55,12 +55,10 @@ export class App extends LitElement {
     }
 
 
-
-
-    console.log('START of http://206.189.3.8:8080/obfuscate')
-    await fetch('http://206.189.3.8:8080/obfuscate',{
-    /*console.log('START of https://king-prawn-app-uh9u9.ondigitalocean.app/obfuscate')
-    await fetch('https://king-prawn-app-uh9u9.ondigitalocean.app/obfuscate',{*/
+    /*console.log('START of http://206.189.3.8:8080/obfuscate')
+    await fetch('http://206.189.3.8:8080/obfuscate',{*/
+    console.log('START of https://king-prawn-app-uh9u9.ondigitalocean.app/obfuscate')
+    await fetch('https://king-prawn-app-uh9u9.ondigitalocean.app/obfuscate',{
       method: 'PUT',
       body: new FormData(event.target)
     })
@@ -77,6 +75,11 @@ export class App extends LitElement {
                     messageText: formData.get("message-text"),
                     imageUrl: imageUrl
                 }];
+
+            var imagePreview = document.getElementById('preview');
+            imagePreview.classList.add('hidden');
+            var messageText = document.getElementById('messageText');
+            messageText.value = '';
 
           this.requestUpdate();
         });
