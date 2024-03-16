@@ -12,14 +12,12 @@ on:
 jobs:
   node-app:
     runs-on: self-hosted
-    strategy:
-      matrix:
-        node-version: [18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     steps:
     - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js 18.x
       uses: actions/setup-node@v4
+      with:
+        node-version: 18.x
     - run: npm ci --prefix frontend
     - name: Install npm packages
       run: npm --prefix frontend install
