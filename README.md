@@ -27,10 +27,10 @@
 - The Chroma Explorer - 5 pts (night vision)
 - Jakob Nielsen’s Nightmare - 5 pts (nightmare mode)
 - Pixel Pioneer - 5 pts (reusable component)
+- Adaptive mastermind - 5 pts (tot >23px)
+- User Maestro - 5 pts (standaard HTML; keyboard-only via tabs)
 
 ### To claim later on (but already implemented)
-- (Pixel Boy) Adaptive mastermind - 5 pts (tot >23px)
-- (Pixel Boy) User Maestro - 5 pts (standaard HTML; keyboard-only via tabs)
 - (Cyber Sentinel) HotFix haste - 5 pts (GitHub Actions CI/CD)
 - (Cyber Sentinel) Compliance champion - 5 pts (uplodaded en rendered files worden niet opgeslagen voor of na obfuscation)
 - (Cyber Sentinel) Hotfix haste - 5 pts (GitHub Actions deployt changes binnen 2 minuten)
