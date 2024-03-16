@@ -1,7 +1,7 @@
 import { LitElement, html } from 'lit';
-import './file-upload-button.js';
-import './timeline-message.js';
-import {toggleNightmare} from './jakob-nielsen-nightmare.js';
+import './file-upload-button-obfuscated.js';
+import './timeline-message-obfuscated.js';
+import {toggleNightmare} from './jakob-nielsen-nightmare-obfuscated.js';
 
 export class App extends LitElement {
   static get properties() {

@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "@web/dev-server": "^0.4.3",
+    "javascript-obfuscator": "^4.1.0",
     "msw": "^2.2.3"
   }
 }
