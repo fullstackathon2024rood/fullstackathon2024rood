@@ -46,7 +46,7 @@ export class App extends LitElement {
       return;
     }
 
-    await fetch('/obfuscate',{
+    await fetch('http://206.189.3.8:8080/obfuscate',{
       method: 'PUT',
       body: new FormData(event.target)
     });
