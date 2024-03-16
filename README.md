@@ -43,6 +43,10 @@
 
 ![C4 System Context](fullstackathon2024rood-c4-system.png)
 
+#### Container
+
+![C4 Container](fullstackathon2024rood-c4-container.png)
+
 ### Backend
 
 #### Goal
