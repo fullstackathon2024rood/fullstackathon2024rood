@@ -12,6 +12,11 @@ fun main() {
     val app =
         Javalin.create { config ->
             config.useVirtualThreads // Use virtual threads (based on Java Project Loom)
+            config.bundledPlugins.enableCors { cors ->
+                cors.addRule {
+                    it.anyHost()
+                }
+            }
         }.start(8080)
 
     val obfuscator = Obfuscator()

@@ -1,6 +1,5 @@
-import { LitElement, css, html, nothing } from 'lit';
+import { LitElement, html } from 'lit';
 import './file-upload-button.js';
-import {loading} from "./file-upload-button";
 import './timeline-message.js';
 import {toggleNightmare} from './jakob-nielsen-nightmare.js';
 
