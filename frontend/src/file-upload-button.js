@@ -62,12 +62,13 @@ export class FileUploadButton extends LitElement {
                                 // this.requestUpdate();
 
                                 var imageContains = document.getElementById('image-contains');
+                                this.foundClass = null;
                                 if(!!predictions && !!predictions[0]) {
                                     const isContainedInAdvice = this.advice.includes(predictions[0].class)
                                     this.foundClass = predictions[0].class;
                                     if (isContainedInAdvice) {
                                         this.predictions = "Consider if you think that this image could be used maliciously"
-                                        imageContains.classList.add('hidden');
+                                        imageContains.classList.remove('hidden');
                                     } else {
                                         this.predictions = "This image seems safe to upload"
                                         imageContains.classList.remove('hidden');
@@ -75,7 +76,7 @@ export class FileUploadButton extends LitElement {
                                     this.requestUpdate();
                                 } else {
                                     this.predictions = "This image seems safe to upload"
-                                    imageContains.classList.remove('hidden');
+                                    imageContains.classList.add('hidden');
                                 }
                                 loading = false;
                                 spinnerContainer.classList.remove('show-spinner');
@@ -110,7 +111,7 @@ export class FileUploadButton extends LitElement {
             <div class="spinner" id="spinner"><img src="/src/assets/loading-load.gif"></div>
             <img id="preview" src="${this.imageSrc}" alt="your image" .hidden="${!this.imageSrc}" />
           </div>
-          <div class="file-upload__prediction hidden">
+          <div class="file-upload__prediction">
             <h3 class="response hidden" id="responseText">
                 
                 <div id="image-contains">
