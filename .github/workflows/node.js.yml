@@ -22,7 +22,7 @@ jobs:
     - name: Install npm packages
       run: npm --prefix frontend install
     - name: Uglify Javascript
-      run:
+      run: |
         npm install javascript-obfuscator -g
         javascript-obfuscator frontend/src/app.js
         javascript-obfuscator frontend/src/file-upload-button.js
