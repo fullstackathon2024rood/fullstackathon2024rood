@@ -1,7 +1,7 @@
 FROM gradle:jdk21
 
 WORKDIR /my-project
-COPY backend/ .
+COPY . .
 RUN ["gradle", "build"]
 
 EXPOSE 8080
