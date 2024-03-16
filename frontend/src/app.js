@@ -78,6 +78,8 @@ export class App extends LitElement {
 
             var imagePreview = document.getElementById('preview');
             imagePreview.classList.add('hidden');
+            var responseText = document.getElementById('responseText');
+            responseText.classList.add('hidden');
             var messageText = document.getElementById('messageText');
             messageText.value = '';
 
